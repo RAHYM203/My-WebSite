@@ -1,122 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio 2026 | Rahym Garayev</title>
-    <style>
-        /* 1. MODERN COLORS: Using light-dark() for automatic OS theme detection */
-        :root {
-            --bg: light-dark(#f4f4f9, #0d0d12);
-            --text: light-dark(#1a1a1a, #eeeeee);
-            --accent: #3b82f6;
-            --card-bg: light-dark(#ffffff, #1a1a24);
-            color-scheme: light dark; /* Essential for light-dark() to work */
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', system-ui, sans-serif;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* 2. SCROLL PROGRESS BAR: Pure CSS (No JS needed in 2026) */
-        #progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--accent);
-            transform-origin: 0 50%;
-            animation: scroll-progress auto linear;
-            animation-timeline: scroll(); /* The latest scroll-driven API */
-            z-index: 1000;
-        }
-
-        @keyframes scroll-progress {
-            from { transform: scaleX(0); }
-            to { transform: scaleX(1); }
-        }
-
-        header {
-            height: 100vh;
-            display: grid;
-            place-content: center;
-            text-align: center;
-            background: radial-gradient(circle at center, var(--accent) 0%, transparent 70%);
-            background-size: 200% 200%;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        /* 3. SHOW-ON-SCROLL: Elements fade in as they enter view */
-        .project-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(128, 128, 128, 0.1);
-            
-            /* Modern Scroll-Triggered Reveal */
-            view-timeline-name: --card-reveal;
-            view-timeline-axis: block;
-            animation: linear reveal both;
-            animation-timeline: --card-reveal;
-            animation-range: entry 20% cover 40%;
-        }
-
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 { font-size: clamp(2rem, 8vw, 5rem); margin: 0; }
-        .tag { background: var(--accent); color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; }
-    </style>
+    <title>Rahym Garayev - CV</title>
 </head>
+<style>
+    :root {
+        --primary-color: #2c3e50;
+        --accent-color: #438283;
+        /* Matching the teal/green in your image border */
+        --text-color: #333;
+        --bg-color: #f4f7f6;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 20px;
+        color: var(--text-color);
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 30px;
+    }
+
+    .profile-img img {
+        width: 150px;
+        height: 150px;
+        border-radius: 15px;
+        border: 4px solid var(--accent-color);
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    .sidebar h2 {
+        font-size: 1.2rem;
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 5px;
+        margin-top: 30px;
+    }
+
+    .sidebar p,
+    .sidebar li {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar a {
+        color: #aeb6bf;
+        text-decoration: none;
+    }
+
+    /* Main Content Styling */
+    .main-content {
+        padding: 40px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        color: var(--accent-color);
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        color: rgb(156, 147, 43);
+        border-left: 5px solid var(--accent-color);
+        padding-left: 10px;
+        margin-top: 30px;
+        font-size: 1.3rem;
+    }
+
+    .entry {
+        margin-bottom: 20px;
+    }
+
+    .entry h3 {
+        margin: 5px 0;
+        font-size: 1.1rem;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+            text-align: center;
+        }
+
+        .sidebar h2 {
+            border-bottom: none;
+            border-top: 2px solid var(--accent-color);
+            padding-top: 10px;
+        }
+    }
+</style>
+
 <body>
-
-    <div id="progress"></div>
-
-    <header>
-        <h1>I'm Rahym Garayev</h1>
-        <p>Full Stack Developer // Building the Future of Web</p>
-        <p> Scroll to see my work</p>
-    </header>
-
     <div class="container">
-        <section id="projects">
-            <h2>Featured Work (for example i will edit them later on)</h2>
-            
-            <div class="project-card">
-                <span class="tag">Next.js 15</span>
-                <h3>AI Task Manager</h3>
-                <p>Built a productivity app that uses LLMs to prioritize tasks. This demonstrates my ability to integrate APIs and manage complex state.</p>
-                <a href="#">View Repository →</a>
+        <aside class="sidebar">
+            <div class="profile-img">
+                <img src="./WhatsApp Image 2026-04-09 at 03.44.41.jpeg" alt="Rahym Garayev">
             </div>
 
-            <div class="project-card">
-                <span class="tag">PostgreSQL</span>
-                <h3>E-commerce Engine</h3>
-                <p>A high-performance backend capable of handling 10k+ requests per minute using optimized SQL queries.</p>
-                <a href="#">View Repository →</a>
-            </div>
-            
+            <section class="contact">
+                <h2>CONTACT ME</h2>
+                <p><strong>Phone:</strong> +48795694808</p>
+                <p><strong>Email:</strong> garayevrahym@gmail.com</p>
+                <p><strong>Location:</strong> Warsaw, Poland </p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/RAHYM203">RAHYM203</a> </p>
+                <p><strong>LinkedIn:</strong> Rahym Garayev </p>
             </section>
 
-        <footer>
-            <hr>
-            <p>Let's talk: <a href="mailto:garayevrahym@email.com">garayevrahym@email.com</a></p>
-            <p>Visit my web <a href="https://rahym203.github.io/My-WebSite/">site</a> </p>
-        </div>
-    </div>
+            <section class="languages">
+                <h2>LANGUAGE</h2>
+                <ul>
+                    <li>Turkmen (Native) </li>
+                    <li>Turkish (C1 Advanced) </li>
+                    <li>English (B2 Upper Intermediate) </li>
+                    <li>Russian (B2 Upper Intermediate) </li>
+                    <li>Polish (A2 Intermediate) </li>
+                </ul>
+            </section>
 
+            <section class="skills">
+                <h2>COMPUTER SKILLS</h2>
+                <p><strong>Programming:</strong> Python, JavaScript (Basic) </p>
+                <p><strong>OS:</strong> Ubuntu </p>
+                <p><strong>Tools:</strong> Spreadsheet software, Data Analysis </p>
+            </section>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>RAHYM GARAYEV</h1>
+                <p class="subtitle">Computer Science Student</p>
+            </header>
+
+            <section class="profile">
+                <h2>PROFILE</h2>
+                <p>Enthusiastic computer science student with a strong foundation in programming and problem-solving.
+                     Organized, responsible, and eager to gain professional experience. Passionate
+                    about technology and committed to continuous learning.</p>
+            </section>
+
+            <section class="education">
+                <h2>EDUCATION</h2>
+                <div class="entry">
+                    <h3>SWPS UNIVERSITY</h3>
+                    <p>Bachelor's in Computer Science (In progress) </p>
+                    <p><em>Expected Graduation: 29.02.2028</em> </p>
+                </div>
+                <div class="entry">
+                    <h3>28TH SECONDARY SCHOOL</h3>
+                    <p>Graduated in 2019 </p>
+                </div>
+            </section>
+
+            <section class="experience">
+                <h2>WORK EXPERIENCE</h2>
+                <div class="entry">
+                    <h3>Seller Consultant | Hotel Imperial, Turkey</h3>
+                    <ul>
+                        <li>Provided excellent customer service by assisting clients with product selection and
+                            inquiries. </li>
+                        <li>Managed inventory and ensured display areas were well-organized. </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
+
 </html>
