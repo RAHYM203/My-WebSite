@@ -1,211 +1,753 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="" id="htmltema">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahym Garayev - CV</title>
+    <title>Mysal-6-CV-2</title>
+
+    <!--Bootstrap 5.3 CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!--Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        /*chap etmek uchin yonekeylendirish*/
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* Surat olchegi */
+        .avatar-xxl {
+            width: 128px;
+            height: 128px;
+            object-fit: cover;
+        }
+
+        /* wagt chyzygy */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: .72rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--bs-border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .4rem;
+            width: .9rem;
+            height: .9rem;
+            background: var(--bs-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(13, 110, 253, .15);
+        }
+
+        .glass {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, .72);
+            border: 1px solid rgba(255, 255, 255, .45);
+        }
+
+        [data-bs-theme="dark"] .glass {
+            background: rgba(33, 37, 41, .62);
+            border-color: rgba(255, 255, 255, .08);
+        }
+
+        .hero {
+            background:
+                radial-gradient(1200px 500px at 20% -10%, rgba(13, 110, 253, .22), transparent 60%),
+                radial-gradient(900px 500px at 100% 0%, rgba(32, 201, 151, .20), transparent 55%),
+                radial-gradient(900px 600px at 20% 120%, rgba(255, 193, 7, .15), transparent 55%);
+        }
+
+        .avatara {
+            background: linear-gradient(135deg, #2F6BFF, #1FC38A);
+        }
+
+        .renk2 {
+            color: #22C55E;
+            border: 1px solid #22C55E;
+        }
+
+        .renk1 {
+            color: #3B82F6;
+            border: 1px solid #3B82F6;
+        }
+
+        .renk3 {
+            color: #FACC15;
+            border: 1px solid #FACC15;
+        }
+    </style>
 </head>
-<style>
-    :root {
-        --primary-color: #2c3e50;
-        --accent-color: #438283;
-        /* Matching the teal/green in your image border */
-        --text-color: #333;
-        --bg-color: #f4f7f6;
-    }
 
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: var(--bg-color);
-        margin: 0;
-        padding: 20px;
-        color: var(--text-color);
-    }
+<body class=" hero">
+    <header class="border-bottom no-print ">
+        <div class="container py-3 d-flex justify-content-between align-items-center gap-3">
+            <a href="" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+                <span class="badge text-bg-primary rounded-pill fw-bold me-2">CV</span>
+                <span class="fs-5 fw-bold">Rahym Garayev</span>
+            </a>
 
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-        background: white;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-    }
+            <nav class="ms-auto d-flex gap-3 small">
+                <a href="#" class="btn btn-outline-secondary" onclick="window.print()">
+                    <i class="bi bi-printer"></i> Print CV</a>
+                <a href="#b" class="btn btn-outline-secondary" id="themeToggle">
+                    <i id="themeIcon" class="bi bi-sun-fill"></i> Theme</a>
+            </nav>
+        </div>
+    </header>
 
-    /* Sidebar Styling */
-    .sidebar {
-        background-color: var(--primary-color);
-        color: white;
-        padding: 30px;
-    }
+    <main class="container-fluid py-4">
+        <div class="row g-4">
+            <!-- chep bolegi-->
+            <aside class=" col-12 col-lg-4 position-sticky top-0">
+                <div class="card border-0 shadow">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center gap-3">
+                            <div
+                                class="avatar-xxl rounded-4 border overflow-hidden d-flex justify-content-center align-items-center">
+                                <img src="W2hatsApp Image 2026-04-10 at 00.40.24.jpeg" alt="Rahym Garayev"
+                                    class="w-100 h-100 object-fit-cover">
+                            </div>
 
-    .profile-img img {
-        width: 150px;
-        height: 150px;
-        border-radius: 15px;
-        border: 4px solid var(--accent-color);
-        object-fit: cover;
-        margin-bottom: 20px;
-    }
+                            <div>
+                                <h1 class="h4 mb-1">Rahym Garayev</h1>
+                                <p class="text-secondary mb-2">Computer Science Student</p>
+                                <span class="badge renk1 rounded-pill">CSS</span>
+                                <span class="badge rounded-pill renk2">HTML</span>
+                                <span class="badge rounded-pill renk3">JavaScript</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class=" mt-4 border-0 shadow-sm">
+                            <div class="">
+                                <h2 class="h6 text-uppercase mb-3 fw-bold"><i class="bi bi-stars"></i> Profile
+                                    Description
+                                </h2>
+                                <p class="text-secondary">Motivated Computer Science student in Warsaw with a strong
+                                    interest in software development, including HTML, CSS, Bootstrap, JavaScript, C, and
+                                    Python. Experienced in building practical projects and working with algorithms and
+                                    data structures.
 
-    .sidebar h2 {
-        font-size: 1.2rem;
-        border-bottom: 2px solid var(--accent-color);
-        padding-bottom: 5px;
-        margin-top: 30px;
-    }
+                                    Disciplined and quick learner with strong problem-solving skills, currently focused
+                                    on becoming a full-stack developer and contributing to real-world projects.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card mt-4 border rounded-4">
+                            <div class="card-body">
+                                <h2 class="h6 text-uppercase  mb-3"><i class="bi bi-building"></i> SWPS University in
+                                    Warsaw</h2>
+                                <p class="text-secondary">Bachelor's in Computer Science (In progress) Expected
+                                    Graduation: 29.02.2028</p>
+                            </div>
+                        </div>
+                        <div class="card mt-4 border rounded-4">
+                            <div class="card-body">
+                                <h2 class="h6 text-uppercase  mb-3"><i class="bi bi-shield-check"></i> Data Analysis
+                                    Techniques & scientific fields.</h2>
+                                <p class="text-secondary">Core Competencies: Mastering the principles of designing and
+                                    analyzing data
+                                    processing algorithms , regression analysis , and statistical methods.Tools &
+                                    Libraries: Extensive
+                                    hands-on experience with Python, Pandas, NumPy, and the Jupyter environment.Data
+                                    Visualization:
+                                    Designing visual data representations using Matplotlib, Seaborn, and Bokeh.Practical
+                                    Application:
+                                    Conducting multi-faceted analysis on real-world datasets, covering the full pipeline
+                                    from acquisition
+                                    and cleansing to storage.
+                                </p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="d-flex flex-row gap-3 pt-2 pb-2">
+                            <div class="card rounded-4">
+                                <div class="card-body">
+                                    <span class="text-secondary">Tech Stack</span>
+                                    <p class="h6 fw-bold">HTML • CSS • JavaScript</p>
+                                </div>
+                            </div>
+                            <div class="card rounded-4">
+                                <div class="card-body">
+                                    <span class="text-secondary">Specialation</span>
+                                    <p class="h6 fw-bold">Web Developer • Front-End</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <!--Bolumler-->
+                        <h2 class="h4 fw-bold"><i class="bi bi-compass"></i> Sections</h2>
+                        <div class=" list-group">
+                            <a href="#tejribe"
+                                class="text-decoration-none text-secondary list-group-item list-group-item-action">Experience</a>
+                            <a href="#taslama"
+                                class="text-decoration-none text-secondary list-group-item list-group-item-action">Projects</a>
+                            <a href="#ussatlyk"
+                                class="text-decoration-none text-secondary list-group-item list-group-item-action">Skills</a>
+                            <a href="#bilim"
+                                class="text-decoration-none text-secondary list-group-item list-group-item-action">Education</a>
+                            <a href="#shahadatnama"
+                                class="text-decoration-none text-secondary list-group-item list-group-item-action">Certifications</a>
+                            <a href="#ylymish"
+                                class="text-decoration-none text-secondary list-group-item list-group-item-action">Seminars
+                                / Workshops</a>
+                            <a href="#diller"
+                                class="text-decoration-none text-secondary list-group-item list-group-item-action ">Languages</a>
+                            <a href="#habarlas"
+                                class="text-decoration-none text-secondary list-group-item list-group-item-action">Get
+                                in Touch</a>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 text-secondary">Download as PDF: Press <span
+                        class="border rounded-pill bg-secondary-subtle ps-2 pe-2">
+                        Ctrl</span> + <span class="border rounded-pill bg-secondary-subtle ps-2 pe-2">P</span> on your
+                    keyboard.
+                </p>
+            </aside>
+            <!--Sag tarap ust-->
+            <section class="col-12 col-lg-8 shadow-sm ">
+                <div id="barada" class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h2 class="h5 mb-3 fw-bold"><i class="bi bi-person-bounding-box"></i> Maksat</h2>
+                        <p class="mb-0">
+                            Uly göwrümlü, ygtybarly we tiz işleýän platformalary gurup,
+                            önüm hilini we howpsuzlygyny ýokarlandyrmak. Mobil + API + real-time birleşen
+                            ulgamlarda “WhatsApp/Telegram derejeli” tejribesini üpjün etmek.
+                        </p>
+                        <span class="text-bg-dark rounded-pill fw-bold badge ps-2 pe-2"><i
+                                class="bi bi-lightning-charge"></i>
+                            Performans / Uzyn Omurli</span>
+                    </div>
+                </div>
+                <!-- Ish Tejrie-->
+                <div id="tejribe" class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap justify-content-between">
+                            <h2 class="h5 mb-3 fw-bold"><i class="bi bi-briefcase me-2"></i> Tejribe</h2>
+                            <span class="text-secondary small">Onumchilik derejeli ulgamlar + arhitektura +
+                                integrasiya</span>
+                        </div>
 
-    .sidebar p,
-    .sidebar li {
-        font-size: 0.9rem;
-        line-height: 1.6;
-        list-style: none;
-        padding: 0;
-    }
+                        <div class="position-relative ps-4 timeline">
+                            <div class="timeline-item ps-4 mb-4">
+                                <div class="d-flex flex-wrap justify-content-between align-items-end">
+                                    <h3 class="h6 mb-1 fw-bold">Webigem / Tehniki ýolbaşçy</h3>
+                                    <span class="renk1 rounded-pill badge">Hazirki</span>
+                                </div>
+                                <p class="mb-1 text-secondary">Platforma gurluşygy, API dizaýn, mobil ösiş,
+                                    integrasiýalar</p>
+                                <ul class="mb-0 small">
+                                    <li>Uly platformalarda modul arhitektura: API/Interface/Repository/Service gurluşy
+                                    </li>
+                                    <li>JWT + refresh token, rol esasly ygtyýar, log/izleme, rate limiting we gora
+                                        mekanizmleri</li>
+                                    <li>SQL Server + SQLite “local-first” täze çözgüt: çalt UI, real-time sinhron,
+                                        Outbox/Retry mekanizmi</li>
+                                    <li>bviefnoifvhbihvfnojfn</li>
+                                </ul>
+                            </div>
 
-    .sidebar a {
-        color: #aeb6bf;
-        text-decoration: none;
-    }
+                            <div class="timeline-item ps-4 mb-4">
+                                <h3 class="h6 mb-1 fw-bold">Real-time habarlaşma ulgamy, .NET MAUI + SignalR + REST</h3>
+                                <p class="mb-1 text-secondary">WhatsApp/Telegram derejesindäki tejribe: habar, ses
+                                    ýazgy, ýer paýlaşma, surat</p>
+                                <ul class="mb-0 small">
+                                    <li>SignalR toparlar, reconnect-den soň automatiki gaýtadan goşulma, idempotent
+                                        Templd akymy</li>
+                                    <li>Habarlar SQLite-de saklanyp derejeli gözegçilik, sorag server bilen sinhron
+                                        edilýär</li>
+                                    <li>Skalýabillik we öndürijilik üçin caching, indeksler, optimizirlenen soraglar
+                                    </li>
+                                </ul>
+                            </div>
 
-    /* Main Content Styling */
-    .main-content {
-        padding: 40px;
-    }
+                            <div class="timeline-item ps-4 mb-4">
+                                <h3 class="h6 mb-1 fw-bold">Mobil biznes programma • SiteMetalStokTakip (.NET 9, MAUI)
+                                </h3>
+                                <p class="mb-1 text-secondary">Offline-first, awtomat sinhron, rol/ýgtyýar düzgünleri,
+                                    10k+ ýazgy</p>
+                                <ul class="mb-0 small">
+                                    <li>SecureStorage token, DI, HttpClientFactory + Polly, fon sinhron</li>
+                                    <li>Rol boýunça sahypa görünüşi: admin/bayi/personel/nakliye senariýalary</li>
+                                </ul>
+                            </div>
 
-    header h1 {
-        margin: 0;
-        font-size: 2.5rem;
-        color: var(--primary-color);
-    }
+                            <div class="timeline-item ps-4 mb-4">
+                                <h3 class="h6 mb-1 fw-bold">Web platforma • Uly bildiriş (ýgtybarly) platformasy</h3>
+                                <p class="mb-1 text-secondary">Köp kategoriýaly bildiriş platformasy: REST API + UI +
+                                    DataObject gatlaklary</p>
+                                <ul class="mb-0 small">
+                                    <li>Güýçli filtr/sort/parametrli soraglar, stored procedure integrasiýasy (nullable
+                                        parameterler)</li>
+                                    <li>Güýçli model gurluşy: SQL modelleri, request parameterleri, panel UI + vitrin
+                                        akymlary</li>
+                                </ul>
+                            </div>
 
-    .subtitle {
-        font-size: 1.2rem;
-        color: var(--accent-color);
-        font-weight: bold;
-        margin-bottom: 30px;
-    }
-
-    h2 {
-        color: rgb(156, 147, 43);
-        border-left: 5px solid var(--accent-color);
-        padding-left: 10px;
-        margin-top: 30px;
-        font-size: 1.3rem;
-    }
-
-    .entry {
-        margin-bottom: 20px;
-    }
-
-    .entry h3 {
-        margin: 5px 0;
-        font-size: 1.1rem;
-    }
-
-    ul {
-        padding-left: 20px;
-    }
-
-    li {
-        margin-bottom: 8px;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .container {
-            grid-template-columns: 1fr;
-        }
-
-        .sidebar {
-            text-align: center;
-        }
-
-        .sidebar h2 {
-            border-bottom: none;
-            border-top: 2px solid var(--accent-color);
-            padding-top: 10px;
-        }
-    }
-</style>
-
-<body>
-    <div class="container">
-        <aside class="sidebar">
-            <div class="profile-img">
-                <img src="./WhatsApp Image 2026-04-09 at 03.44.41.jpeg" alt="Rahym Garayev">
+                            <div class="timeline-item ps-4 mb-4">
+                                <h3 class="h6 mb-1 fw-bold">Okuw & kontent derejeliligi • HTML/CSS/Bootstrap/SQL</h3>
+                                <p class="mb-1 text-secondary">Sapak meýilnamasy, mysal taslamalar, amaly we tertipli
+                                    öwrediş</p>
+                                <ul class="mb-0 small">
+                                    <li>Bootstrap komponentleri bilen häzirki zaman UI nusgalary: dashboard, CV, forma,
+                                        tablisa</li>
+                                    <li>SQL-de JOIN/UNION/Group By boýunça orta-/ýokary derejeli meseleler (Türkmençe
+                                        düşündiriş bilen)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Saylanan proyektler row row-cols-1 row-cols-md-2 g-4"-->
+                <div class="card-body" id="taslama">
+                    <h3 class="h5 fw-bold"><i class="bi bi-kanban"></i> Taslamalar (saylama)</h3>
+                </div>
+                <div id="proyektler" class="border-0 p-1 row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card p-1">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start justify-content-between">
+                                    <div class="card-subtitle h5 fw-bold">ChatApp • Real-time habarlashma</div>
+                                    <span class="text-bg-success badge rounded-pill">MAUI</span>
+                                </div>
+                                <span class="text-secondary">Real-time habar, ses yazgysy, yer paylashma, surat, lokal
+                                    SQLite keshi + server sinhron.</span>
+                            </div>
+                            <div class="card-text p-3 d-flex flex-wrap gap-2">
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-broadcast"></i> SignalR</span>
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-database"></i> SQLite/SQL</span>
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-shield-lock"></i> JWT</span>
+                            </div>
+                            <hr>
+                            <div class="ps-1 pe-1">
+                                <p class="text-secondary small">
+                                    Fokus: tiz UI ygtybarly sinhron, millionlarcha ulanyjy uchin arhitektura
+                                    pikirlenishi
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card p-1">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start justify-content-between">
+                                    <div class="card-subtitle h5 fw-bold">SiteMetalStokTakip • Stock & sargyt</div>
+                                    <span class="text-bg-primary badge rounded-pill">.NET 9</span>
+                                </div>
+                                <span class="text-secondary">Rol esasly akym: admin/yonetiji/bayipersonel/nakliye.
+                                    Offline first + awtomat sinhron.</span>
+                            </div>
+                            <div class="card-text p-3 d-flex flex-wrap gap-2">
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-arrow-repeat"></i> Sync</span>
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-lightning"></i> 10k+ yazgy</span>
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-gear"></i>
+                                    Polly</span>
+                            </div>
+                            <hr>
+                            <div class="ps-1 pe-1">
+                                <p class="text-secondary small">
+                                    Fokus: ondurjilik yygtyyar duzgunleri ish prossesi loglary
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card p-1">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start justify-content-between">
+                                    <div class="card-subtitle h5 fw-bold">Bildiriş platformasy</div>
+                                    <span class="text-bg-warning badge rounded-pill">API</span>
+                                </div>
+                                <span class="text-secondary">Köp kategoriýaly ýg­lan ýerleşdirme ulgamy: REST API + UI +
+                                    DataObject gatlaklary.</span>
+                            </div>
+                            <div class="card-text p-3 d-flex flex-wrap gap-2">
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-funnel"></i>
+                                    filtr</span>
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-diagram-3"></i> 3 gatlak</span>
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-file-earmark-code"></i> SP</span>
+                            </div>
+                            <hr>
+                            <div class="ps-1 pe-1">
+                                <p class="text-secondary small">
+                                    Fokus: parametrli soraglar, SP integrasiýasy, giňeldilip bilinýän gurluş
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card p-1">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start justify-content-between">
+                                    <div class="card-subtitle h5 fw-bold">Pizza Pazary • Mobil söwda</div>
+                                    <span class="text-bg-secondary badge rounded-pill">MAUI</span>
+                                </div>
+                                <span class="text-secondary">Satyn alyş, baha bermek, köpçülikleýin pozmak, “iň köp
+                                    satylýanlar” ýaly dinamik bölü</span>
+                            </div>
+                            <div class="card-text p-3 d-flex flex-wrap gap-2">
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-text-indent-left"></i> UX</span>
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-bar-chart"></i> Statistika</span>
+                                <span class="text-secondary border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-plug"></i>
+                                    Integrasiya Tayyar</span>
+                            </div>
+                            <hr>
+                            <div class="ps-1 pe-1">
+                                <p class="text-secondary small">
+                                    Fokus: arassa UI, peýdaly funksionallar, häzirki zaman komponentler
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-info-subtle p-2 pt-3 rounded mt-3 mb-4">
+                    <p><i class="bi bi-info-circle me-1"></i> Goshmacha ugurlar. <b>MLNET</b> (awtomat
+                        kategoriyalashdyrma, obyekt tanama) we <b>OpenAI API integriyasy</b> (terjime, ses bilen
+                        interaksiya duygu
+                        analizi, surat okamak).
+                    </p>
+                </div>
+            </section>
+            <!--Ussatlyklar-->
+            <section class="col-4"> </section>
+            <div class=" col-8 shadow rounded" id="ussatlyk">
+                <div class="p-2 pt-3 ">
+                    <h1 class="h3 fw-bold"><i class="bi bi-tools"></i> Ussatlyklar</h1>
+                </div>
+                <div class="d-flex flex-row gap-3 m-3 pb-3">
+                    <div class="card rounded-4">
+                        <div class="card-body ">
+                            <h3 class="h5 fw-bold pb-2 pt-2"><i class="bi bi-code-slash"></i> Back-end</h3>
+                            <div class="card-text d-flex flex-wrap gap-3">
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-braces"></i> C#</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i class="bi bi-box"></i>
+                                    ASP.NET Core</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-diagram-3"></i>
+                                    REST#</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-broadcast"></i>
+                                    SignalR</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-shield-lock"></i>
+                                    JWT/Refresh</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-check2-square"></i>
+                                    xUnit</span>
+                            </div>
+                            <p class="text-secondary h6 pt-3">Dizayn yorelgesi</p>
+                            <div class="card-text d-flex flex-wrap gap-3">
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-layers"></i> Clean
+                                    arhitektura</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-gear-wide-connected"></i>
+                                    DI</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-arrows-angle-contract"></i>
+                                    Idempotent akym</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-activity"></i>
+                                    Observability</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card rounded-4">
+                        <div class="card-body ">
+                            <h3 class="h5 fw-bold pb-2 pt-2"><i class="bi bi-phone"></i> Mobil / UI</h3>
+                            <div class="card-text d-flex flex-wrap gap-3">
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i class="bi bi-phone"></i>
+                                    .NET MAUI</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-calendar4"></i>
+                                    Blazor</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-bootstrap"></i>
+                                    Bootstrap</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-palette"></i> UI/UX</span>
+                            </div>
+                            <p class="text-secondary h6 pt-3">Maglumat bazasy</p>
+                            <div class="card-text d-flex flex-wrap gap-3">
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-database"></i> SQL
+                                    Server</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i class="bi bi-hdd"></i>
+                                    SQLite</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-lightning"></i>
+                                    Indeks/optimatizasiya</span>
+                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                        class="bi bi-file-earmark-text"></i>
+                                    Stored Procedure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex flex-row gap-4">
+                    <div class="card-body">
+                        <div class="col">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-secondary">Arhitektura & ondurjilik</span>
+                            </div>
+                            <div class="progress" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <div class="progress-bar" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="col">
+                            <div class="d-flex justify-content-between"><span class="text-secondary">Real-time &
+                                    sinhronizasiya</span></div>
+                            <div class="progress" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                                aria-valuemax="100">
+                                <div class="progress-bar" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-secondary pt-3">Bellik: Bu progress sutunleri "gorkezme" gornushundedir; isleseniz
+                    goterimlerinizi ozuniz gorkezin.</p>
             </div>
 
-            <section class="contact">
-                <h2>CONTACT ME</h2>
-                <p><strong>Phone:</strong> +48795694808</p>
-                <p><strong>Email:</strong> garayevrahym@gmail.com</p>
-                <p><strong>Location:</strong> Warsaw, Poland </p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/RAHYM203">RAHYM203</a> </p>
-                <p><strong>LinkedIn:</strong> Rahym Garayev </p>
-            </section>
-
-            <section class="languages">
-                <h2>LANGUAGE</h2>
-                <ul>
-                    <li>Turkmen (Native) </li>
-                    <li>Turkish (C1 Advanced) </li>
-                    <li>English (B2 Upper Intermediate) </li>
-                    <li>Russian (B2 Upper Intermediate) </li>
-                    <li>Polish (A2 Intermediate) </li>
-                </ul>
-            </section>
-
-            <section class="skills">
-                <h2>COMPUTER SKILLS</h2>
-                <p><strong>Programming:</strong>HTML, CSS, Bootstrap 5.0, Python, C, JavaScript (Basic) </p>
-                <p><strong>OS:</strong> Ubuntu, Linux, Shell </p>
-                <p><strong>Tools:</strong> Spreadsheet software, Data Analysis </p>
-            </section>
-        </aside>
-
-        <main class="main-content">
-            <header>
-                <h1>RAHYM GARAYEV</h1>
-                <p class="subtitle">Computer Science Student</p>
-            </header>
-
-            <section class="profile">
-                <h2>PROFILE</h2>
-                <p>Enthusiastic computer science student with a strong foundation in programming and problem-solving.
-                     Organized, responsible, and eager to gain professional experience. Passionate
-                    about technology and committed to continuous learning.</p>
-            </section>
-
-            <section class="education">
-                <h2>EDUCATION</h2>
-                <div class="entry">
-                    <h3>SWPS UNIVERSITY</h3>
-                    <p>Bachelor's in Computer Science (In progress) </p>
-                    <p><em>Expected Graduation: 29.02.2028</em> </p>
+            <!--Bilim-->
+            <section class="col-4"> </section>
+            <div class=" col-8 shadow rounded" id="bilim">
+                <h5 class="h5 fw-bold mt-3"><i class="bi bi-mortarboard"></i> Bilim</h5>
+                <div class="mt-4 mb-4 border rounded-4 p-2">
+                    <div class="d-flex flex-wrap justify-content-between mt-4 align-items-start">
+                        <div>
+                            <h6 class="h5 fw-bold">Yokary okuw</h6>
+                            <span class="text-secondary">Fakultet / Bolum > Yyl aralygy</span>
+                        </div>
+                        <span class="text-bg-secondary rounded-pill ps-1 pe-1 fw-bold">Doldurulmaly</span>
+                    </div>
+                    <p>Ankara Gazi Uniwersiteti Maglumat Howpsyzlygy Inzinerchiligi. Magistratura.</p>
                 </div>
-                <div class="entry">
-                    <h3>28TH SECONDARY SCHOOL</h3>
-                    <p>Graduated in 2019 </p>
-                </div>
-            </section>
-
-            <section class="experience">
-                <h2>WORK EXPERIENCE</h2>
-                <div class="entry">
-                    <h3>Seller Consultant | Hotel Imperial, Turkey</h3>
-                    <ul>
-                        <li>Provided excellent customer service by assisting clients with product selection and
-                            inquiries. </li>
-                        <li>Managed inventory and ensured display areas were well-organized. </li>
-                        <li><i style="color: red;">This all information still under editing!</i></li>
+                <div class="mt-4 mb-4 border rounded-4 p-2">
+                    <div class="d-flex flex-wrap justify-content-between mt-4 align-items-start">
+                        <div>
+                            <h6 class="h5 fw-bold">Yokary derje okuw / Seminer ugury</h6>
+                            <span class="text-secondary">LLM esasly .NET programlarynda prompt enjeksiyon we chykysh
+                                howpsuzlygy</span>
+                        </div>
+                    </div>
+                    <ul class="mt-3">
+                        <li>
+                            Ankara Gazi Uniwersiteti Maglumat Howpsyzlygy Inzinerchiligi. Magistratura.
+                        </li>
+                        <li>
+                            OWASP LLM howplary: girish/chykysh gozegchiligi, Pill suzguchu, policy enforcement.
+                        </li>
                     </ul>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+
+            <!--Shahadatnama-->
+            <section class="col-4"> </section>
+            <div class=" col-8 shadow rounded " id="shahadatnama">
+                <h5 class="h5 fw-bold mt-3"><i class="bi bi-patch-check me-1"></i> Shahadatnama / Ugurlar</h5>
+
+                <div class="d-flex flex-row gap-3 m-3 pb-3">
+                    <div class="card rounded-4">
+                        <div class="card-body ">
+                            <h3 class="h5 fw-bold pb-2 pt-2">.NET & arhitektura</h3>
+                            <ul>
+                                <li>Arassa arhitektura, moduly gurlush, test & log standartlary</li>
+                                <li>JWT/Reshresh token, rol esasly ygtyyar</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card rounded-4">
+                        <div class="card-body ">
+                            <h3 class="h5 fw-bold pb-2 pt-2">Maglumat bazasy & doredijilik</h3>
+                            <ul>
+                                <li>SQL Server/SQLite optimizasiyasy , indeks strategiyasy</li>
+                                <li>Stored procedure integresiyasy, parametrli soraglar</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-secondary">Bu bolume isleseniz resmi sertificatlaryn ady, beryan gurama, yyly yaly
+                    maglumatlary girizip bilersiniz.</p>
+            </div>
+            <!--Ylmy ish seminer-->
+            <section class="col-4"> </section>
+            <div class=" col-8 shadow rounded" id="ylymish">
+                <h5 class="h5 fw-bold mt-3"><i class="bi bi-journal-text"></i> Ylmy ish / Seminer</h5>
+                <div id="bilim" class="mt-4 mb-4 border rounded-4 p-2">
+                    <div class="d-flex flex-wrap justify-content-between mt-4 align-items-start">
+                        <div>
+                            <h6 class="h5 fw-bold">Seminer: LLM esasly .NET programlarynda prompt enjeksiyon we chykysh
+                                howsuzlygy</h6>
+                            <span class="text-secondary">Gatlaklayyn ASP.NET Core middleware dizayny • howp modeli •
+                                policy enforcement</span>
+                        </div>
+                        <span class="text-bg-primary rounded-pill ps-1 pe-1 fw-bold">Ishlenyar</span>
+                    </div>
+                    <ul class="mt-2">
+                        <li>Giriş/çykyş “süzgüc” zənjiry: düzgünler + klassifikasiýa + PII gözegçiligi.</li>
+                        <li>Hüjüm ssenariýleri: prompt enjeksion, maglumat syzmasy, rugsatsyz görmekzeme.</li>
+                        <li>Amaly maksat: .NET ekosistemasynda “middleware derejesinde” gorag gurluşy.</li>
+                    </ul>
+                </div>
+            </div>
+            <!--Diller-->
+            <section class="col-4"> </section>
+            <div class=" col-8 shadow rounded " id="diller">
+                <h5 class="h5 fw-bold mt-3"><i class="bi bi-translate me-1"></i> Diller</h5>
+
+                <div class="d-flex flex-row gap-3 m-3 pb-3">
+                    <div class="card rounded-4">
+                        <div class="card-body ">
+                            <h3 class="h5 fw-bold pb-2 pt-2">Turkmen Dili</h3>
+                            <span class="text-secondary">Ene dili</span>
+                        </div>
+                    </div>
+                    <div class="card rounded-4">
+                        <div class="card-body ">
+                            <h3 class="h5 fw-bold pb-2 pt-2">Turk Dili</h3>
+                            <span class="text-secondary">Ish we gundelik aragatnashyk</span>
+                        </div>
+                    </div>
+                    <div class="card rounded-4">
+                        <div class="card-body ">
+                            <h3 class="h5 fw-bold pb-2 pt-2">Inlis Dili</h3>
+                            <span class="text-secondary">Tehnik dokumentasiya / kommunikasiya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Habarlashmak-->
+            <section class="col-4"> </section>
+            <div class=" col-8 shadow rounded " id="habarlas">
+                <h5 class="h5 fw-bold mt-3"><i class="bi bi-person-lines-fill"></i> Habarlashmak</h5>
+                <div class="row p-2">
+                    <div class="col">
+                        <div class="card rounded-4">
+                            <div class="card-body ">
+                                <span class="text-secondary">E-pochta</span>
+                                <h3 class="h6 text-secondary fw-bold pb-2 pt-2"><i
+                                        class="bi bi-envelope me-1 text-dark"></i>
+                                    (mr.rgarayev@gmail.com)</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card rounded-4">
+                            <div class="card-body ">
+                                <span class="text-secondary">Telefon</span>
+                                <h3 class="h6 text-secondary fw-bold pb-2 pt-2"><i
+                                        class="bi bi-telephone me-1 text-dark"></i>
+                                    (+9050597499584)</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col">
+                        <div class="card rounded-4">
+                            <div class="card-body ">
+                                <span class="text-secondary">Yer</span>
+                                <h3 class="h6 text-secondary fw-bold pb-2 pt-2"><i
+                                        class="bi bi-geo-alt me-1 text-dark"></i><b class="text-dark">Turkiye</b>
+                                    (Shaher:
+                                    Ankara)</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card rounded-4">
+                            <div class="card-body ">
+                                <span class="text-secondary">Portfel / Git</span>
+                                <h3 class="h6 text-secondary fw-bold pb-2 pt-2"><i
+                                        class="bi bi-link-45deg me-1 text-dark"></i>
+                                    (Rahym Garayev LinkedIn)</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="d-flex flex-row justify-content-between p-2 pt-3 pb-4">
+                    <p class="text-secondary">Reference: <b class="text-dark">talap edilende berilyar.</b></p>
+                    <button type="button" class="btn btn-primary" onclick="window.print()"><i
+                            class="bi bi-filetype-pdf"></i> PDF
+                        hokmunde chykarmak (chap)</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center text-secondary pb-5 mb-4 pt-5 mt-5"> &copy; 2026 • Rahym -- CV nusgasy (Bootstrap 5.3)
+    </footer>
+
+    <script>
+        window.onload = function () {
+            alert("Web Site still under editing. All informations are might me incorrect.");
+        };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const html = document.documentElement;
+        const button = document.getElementById("themeToggle");
+        const icon = document.getElementById("themeIcon");
+
+        button.addEventListener("click", (e) => {
+            e.preventDefault(); // Prevents the page from jumping because of href="#"
+
+            // Default to 'light' if the attribute is empty
+            const currentTheme = html.getAttribute("data-bs-theme") || "light";
+
+            if (currentTheme === "dark") {
+                html.setAttribute("data-bs-theme", "light");
+                icon.className = "bi bi-sun-fill";
+            } else {
+                html.setAttribute("data-bs-theme", "dark");
+                icon.className = "bi bi-moon-stars-fill";
+            }
+        });
+    </script>
 </body>
 
 </html>
