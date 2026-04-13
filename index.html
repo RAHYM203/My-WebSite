@@ -122,7 +122,7 @@
     <main class="container-fluid py-4">
         <div class="row g-4">
             <!-- chep bolegi-->
-            <aside class=" col-12 col-lg-4 position-sticky top-0">
+            <aside class=" col-12 col-lg-4 sticky-lg-top">
                 <div class="card border-0 shadow">
                     <div class="card-body">
                         <div class="d-flex align-items-center gap-3">
@@ -445,78 +445,103 @@
                 </div>
             </section>
             <!--Ussatlyklar-->
-            <section class="col-4"> </section>
-            <div class=" col-8 shadow rounded" id="ussatlyk">
+            <section class="col-4"></section>
+            <div class=" col-12 col-lg-8  shadow" id="ussatlyk">
                 <div class="p-2 pt-3 ">
                     <h1 class="h3 fw-bold"><i class="bi bi-tools"></i> Ussatlyklar</h1>
                 </div>
-                <div class="d-flex flex-row gap-3 m-3 pb-3">
+                <div class=" col">
                     <div class="card rounded-4">
                         <div class="card-body ">
                             <h3 class="h5 fw-bold pb-2 pt-2"><i class="bi bi-code-slash"></i> Back-end</h3>
                             <div class="card-text d-flex flex-wrap gap-3">
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                <span
+                                    class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
                                         class="bi bi-braces"></i> C#</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i class="bi bi-box"></i>
+                                <span
+                                    class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
+                                        class="bi bi-box"></i>
                                     ASP.NET Core</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                <span
+                                    class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
                                         class="bi bi-diagram-3"></i>
                                     REST#</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                <span
+                                    class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
                                         class="bi bi-broadcast"></i>
                                     SignalR</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                <span
+                                    class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
                                         class="bi bi-shield-lock"></i>
                                     JWT/Refresh</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                <span
+                                    class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
                                         class="bi bi-check2-square"></i>
                                     xUnit</span>
                             </div>
                             <p class="text-secondary h6 pt-3">Dizayn yorelgesi</p>
                             <div class="card-text d-flex flex-wrap gap-3">
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                <span
+                                    class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
                                         class="bi bi-layers"></i> Clean
                                     arhitektura</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                <span
+                                    class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
                                         class="bi bi-gear-wide-connected"></i>
                                     DI</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                <span
+                                    class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
                                         class="bi bi-arrows-angle-contract"></i>
                                     Idempotent akym</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
+                                <span
+                                    class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
                                         class="bi bi-activity"></i>
                                     Observability</span>
                             </div>
                         </div>
                     </div>
-                    <div class="card rounded-4">
-                        <div class="card-body ">
-                            <h3 class="h5 fw-bold pb-2 pt-2"><i class="bi bi-phone"></i> Mobil / UI</h3>
-                            <div class="card-text d-flex flex-wrap gap-3">
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i class="bi bi-phone"></i>
-                                    .NET MAUI</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
-                                        class="bi bi-calendar4"></i>
-                                    Blazor</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
-                                        class="bi bi-bootstrap"></i>
-                                    Bootstrap</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
-                                        class="bi bi-palette"></i> UI/UX</span>
-                            </div>
-                            <p class="text-secondary h6 pt-3">Maglumat bazasy</p>
-                            <div class="card-text d-flex flex-wrap gap-3">
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
-                                        class="bi bi-database"></i> SQL
-                                    Server</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i class="bi bi-hdd"></i>
-                                    SQLite</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
-                                        class="bi bi-lightning"></i>
-                                    Indeks/optimatizasiya</span>
-                                <span class="border border-secondary rounded-pill ps-2 pe-2"><i
-                                        class="bi bi-file-earmark-text"></i>
-                                    Stored Procedure</span>
+                    <div class="col">
+
+
+                        <div class="card rounded-4 mt-2">
+                            <div class="card-body ">
+                                <h3 class="h5 fw-bold pb-2 pt-2"><i class="bi bi-phone"></i> Mobil / UI</h3>
+                                <div class="card-text d-flex flex-wrap gap-3">
+                                    <span
+                                        class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
+                                            class="bi bi-phone"></i>
+                                        .NET MAUI</span>
+                                    <span
+                                        class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
+                                            class="bi bi-calendar4"></i>
+                                        Blazor</span>
+                                    <span
+                                        class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
+                                            class="bi bi-bootstrap"></i>
+                                        Bootstrap</span>
+                                    <span
+                                        class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
+                                            class="bi bi-palette"></i> UI/UX</span>
+                                </div>
+                                <p class="text-secondary h6 pt-3">Maglumat bazasy</p>
+                                <div class="card-text d-flex flex-wrap gap-3">
+                                    <span
+                                        class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
+                                            class="bi bi-database"></i> SQL
+                                        Server</span>
+                                    <span
+                                        class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
+                                            class="bi bi-hdd"></i>
+                                        SQLite</span>
+                                    <span
+                                        class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block"><i
+                                            class="bi bi-lightning"></i>
+                                        Indeks/optimatizasiya</span>
+                                    <span
+                                        class="border border-secondary rounded-pill px-3 py-1 text-nowrap d-inline-block  "><i
+                                            class="bi bi-file-earmark-text"></i>
+                                        Stored Procedure</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -551,32 +576,34 @@
 
             <!--Bilim-->
             <section class="col-4"> </section>
-            <div class=" col-8 shadow rounded" id="bilim">
-                <h5 class="h5 fw-bold mt-3"><i class="bi bi-mortarboard"></i> Bilim</h5>
+            <div class=" col-12 col-lg-8 shadow rounded" id="bilim">
+                <h5 class="h5 fw-bold mt-3"><i class="bi bi-mortarboard"></i> Education</h5>
                 <div class="mt-4 mb-4 border rounded-4 p-2">
                     <div class="d-flex flex-wrap justify-content-between mt-4 align-items-start">
                         <div>
-                            <h6 class="h5 fw-bold">Yokary okuw</h6>
-                            <span class="text-secondary">Fakultet / Bolum > Yyl aralygy</span>
+                            <h6 class="h5 fw-bold">SWPS University in Warsaw</h6>
+                            <span class="text-secondary">
+                                Faculty of Design in Warsaw /
+                                Computer Science</span>
                         </div>
-                        <span class="text-bg-secondary rounded-pill ps-1 pe-1 fw-bold">Doldurulmaly</span>
+                        <span class="text-bg-primary rounded-pill ps-1 pe-1 fw-bold">Current</span>
                     </div>
-                    <p>Ankara Gazi Uniwersiteti Maglumat Howpsyzlygy Inzinerchiligi. Magistratura.</p>
+                    <p>Bachelor's first cycle. Full-time. Expected graduation: February 2028</p>
                 </div>
                 <div class="mt-4 mb-4 border rounded-4 p-2">
                     <div class="d-flex flex-wrap justify-content-between mt-4 align-items-start">
                         <div>
-                            <h6 class="h5 fw-bold">Yokary derje okuw / Seminer ugury</h6>
-                            <span class="text-secondary">LLM esasly .NET programlarynda prompt enjeksiyon we chykysh
-                                howpsuzlygy</span>
+                            <h6 class="h5 fw-bold">High School Diploma</h6>
+                            <span class="text-secondary">28th secondary school in Yoloten etrap, Mary city, Turkmenistan</span>
                         </div>
+                        <span class="text-bg-success rounded-pill ps-1 pe-1 fw-bold">Graduated</span>
                     </div>
                     <ul class="mt-3">
                         <li>
-                            Ankara Gazi Uniwersiteti Maglumat Howpsyzlygy Inzinerchiligi. Magistratura.
+                            <b>Information Science:</b> Achieved a grade of 5/5 (Excellent), demonstrating a strong foundation in computational logic and data processing.
                         </li>
                         <li>
-                            OWASP LLM howplary: girish/chykysh gozegchiligi, Pill suzguchu, policy enforcement.
+                            <b>Information Communication and Innovation Technology:</b> Awarded 5/5 (Excellent) for mastery of modern digital communication tools and emerging tech trends.
                         </li>
                     </ul>
                 </div>
@@ -584,101 +611,113 @@
 
             <!--Shahadatnama-->
             <section class="col-4"> </section>
-            <div class=" col-8 shadow rounded " id="shahadatnama">
-                <h5 class="h5 fw-bold mt-3"><i class="bi bi-patch-check me-1"></i> Shahadatnama / Ugurlar</h5>
+            <div class=" col-12 col-lg-8 shadow rounded " id="shahadatnama">
+                <h5 class="h5 fw-bold mt-3"><i class="bi bi-patch-check me-1"></i> Certificates / Specialization</h5>
 
                 <div class="d-flex flex-row gap-3 m-3 pb-3">
                     <div class="card rounded-4">
                         <div class="card-body ">
-                            <h3 class="h5 fw-bold pb-2 pt-2">.NET & arhitektura</h3>
+                            <h3 class="h5 fw-bold pb-2 pt-2">not yet</h3>
                             <ul>
-                                <li>Arassa arhitektura, moduly gurlush, test & log standartlary</li>
-                                <li>JWT/Reshresh token, rol esasly ygtyyar</li>
+                                <li>----------</li>
+                                <li>----------</li>
                             </ul>
                         </div>
                     </div>
                     <div class="card rounded-4">
                         <div class="card-body ">
-                            <h3 class="h5 fw-bold pb-2 pt-2">Maglumat bazasy & doredijilik</h3>
+                            <h3 class="h5 fw-bold pb-2 pt-2">not yet</h3>
                             <ul>
-                                <li>SQL Server/SQLite optimizasiyasy , indeks strategiyasy</li>
-                                <li>Stored procedure integresiyasy, parametrli soraglar</li>
+                                <li>----------</li>
+                                <li>----------</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <p class="text-secondary">Bu bolume isleseniz resmi sertificatlaryn ady, beryan gurama, yyly yaly
-                    maglumatlary girizip bilersiniz.</p>
+                <p class="text-secondary">I will apply here once I have the necessary certificates.</p>
             </div>
             <!--Ylmy ish seminer-->
             <section class="col-4"> </section>
-            <div class=" col-8 shadow rounded" id="ylymish">
-                <h5 class="h5 fw-bold mt-3"><i class="bi bi-journal-text"></i> Ylmy ish / Seminer</h5>
+            <div class=" col-12 col-lg-8 shadow rounded" id="ylymish">
+                <h5 class="h5 fw-bold mt-3"><i class="bi bi-journal-text"></i> Here I will later add information about my seminars and workshops</h5>
                 <div id="bilim" class="mt-4 mb-4 border rounded-4 p-2">
                     <div class="d-flex flex-wrap justify-content-between mt-4 align-items-start">
                         <div>
-                            <h6 class="h5 fw-bold">Seminer: LLM esasly .NET programlarynda prompt enjeksiyon we chykysh
-                                howsuzlygy</h6>
-                            <span class="text-secondary">Gatlaklayyn ASP.NET Core middleware dizayny • howp modeli •
-                                policy enforcement</span>
+                            <h6 class="h5 fw-bold">---------------</h6>
+                            <span class="text-secondary">----------------</span>
                         </div>
-                        <span class="text-bg-primary rounded-pill ps-1 pe-1 fw-bold">Ishlenyar</span>
+                        <span class="text-bg-primary rounded-pill ps-1 pe-1 fw-bold">---------</span>
                     </div>
                     <ul class="mt-2">
-                        <li>Giriş/çykyş “süzgüc” zənjiry: düzgünler + klassifikasiýa + PII gözegçiligi.</li>
-                        <li>Hüjüm ssenariýleri: prompt enjeksion, maglumat syzmasy, rugsatsyz görmekzeme.</li>
-                        <li>Amaly maksat: .NET ekosistemasynda “middleware derejesinde” gorag gurluşy.</li>
+                        <li>---------</li>
+                        <li>---------</li>
+                        <li>---------</li>
                     </ul>
                 </div>
             </div>
             <!--Diller-->
             <section class="col-4"> </section>
-            <div class=" col-8 shadow rounded " id="diller">
-                <h5 class="h5 fw-bold mt-3"><i class="bi bi-translate me-1"></i> Diller</h5>
+            <div class=" col-12 col-lg-8 shadow rounded " id="diller">
+                <h5 class="h5 fw-bold mt-3"><i class="bi bi-translate me-1"></i> Languages</h5>
 
                 <div class="d-flex flex-row gap-3 m-3 pb-3">
                     <div class="card rounded-4">
                         <div class="card-body ">
-                            <h3 class="h5 fw-bold pb-2 pt-2">Turkmen Dili</h3>
-                            <span class="text-secondary">Ene dili</span>
+                            <h3 class="h5 fw-bold pb-2 pt-2">Polish</h3>
+                            <span class="text-secondary">Intermediate / Communication Level</span>
                         </div>
                     </div>
                     <div class="card rounded-4">
                         <div class="card-body ">
-                            <h3 class="h5 fw-bold pb-2 pt-2">Turk Dili</h3>
-                            <span class="text-secondary">Ish we gundelik aragatnashyk</span>
+                            <h3 class="h5 fw-bold pb-2 pt-2">English</h3>
+                            <span class="text-secondary">Upper-Intermediate</span>
                         </div>
                     </div>
                     <div class="card rounded-4">
                         <div class="card-body ">
-                            <h3 class="h5 fw-bold pb-2 pt-2">Inlis Dili</h3>
-                            <span class="text-secondary">Tehnik dokumentasiya / kommunikasiya</span>
+                            <h3 class="h5 fw-bold pb-2 pt-2">Turkish</h3>
+                            <span class="text-secondary">Upper-Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="card rounded-4">
+                        <div class="card-body ">
+                            <h3 class="h5 fw-bold pb-2 pt-2">Russian</h3>
+                            <span class="text-secondary">Upper-Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="card rounded-4">
+                        <div class="card-body ">
+                            <h3 class="h5 fw-bold pb-2 pt-2">Turkmen </h3>
+                            <span class="text-secondary">Native language</span>
                         </div>
                     </div>
                 </div>
             </div>
             <!--Habarlashmak-->
             <section class="col-4"> </section>
-            <div class=" col-8 shadow rounded " id="habarlas">
-                <h5 class="h5 fw-bold mt-3"><i class="bi bi-person-lines-fill"></i> Habarlashmak</h5>
+            <div class=" col-12 col-lg-8 shadow rounded " id="habarlas">
+                <h5 class="h5 fw-bold mt-3"><i class="bi bi-person-lines-fill"></i> Get in touch</h5>
                 <div class="row p-2">
                     <div class="col">
-                        <div class="card rounded-4">
+                        <div class="card rounded-4 mb-3">
                             <div class="card-body ">
-                                <span class="text-secondary">E-pochta</span>
+                                <span class="text-secondary">Email</span>
                                 <h3 class="h6 text-secondary fw-bold pb-2 pt-2"><i
-                                        class="bi bi-envelope me-1 text-dark"></i>
-                                    (mr.rgarayev@gmail.com)</h3>
+                                        class="bi bi-envelope me-1 text-warning"></i>
+                                    <a href="mailto:garayevrahym@gmail.com"
+                                        class="text-decoration-none text-dark">garayevrahym@gmail.com</a>
+                                </h3>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card rounded-4">
                             <div class="card-body ">
-                                <span class="text-secondary">Telefon</span>
+                                <span class="text-secondary">Phone</span>
                                 <h3 class="h6 text-secondary fw-bold pb-2 pt-2"><i
-                                        class="bi bi-telephone me-1 text-dark"></i>
-                                    (+9050597499584)</h3>
+                                        class="bi bi-telephone me-1 text-success"></i>
+                                    <a href="tel:+48795694808" class="text-decoration-none text-dark">+48795694808</a>
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -687,21 +726,21 @@
                     <div class="col">
                         <div class="card rounded-4">
                             <div class="card-body ">
-                                <span class="text-secondary">Yer</span>
+                                <span class="text-secondary">Location</span>
                                 <h3 class="h6 text-secondary fw-bold pb-2 pt-2"><i
-                                        class="bi bi-geo-alt me-1 text-dark"></i><b class="text-dark">Turkiye</b>
-                                    (Shaher:
-                                    Ankara)</h3>
+                                        class="bi bi-geo-alt me-1 text-danger"></i><b class="text-dark">Poland,
+                                        Warsaw</b></h3>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card rounded-4">
                             <div class="card-body ">
-                                <span class="text-secondary">Portfel / Git</span>
-                                <h3 class="h6 text-secondary fw-bold pb-2 pt-2"><i
-                                        class="bi bi-link-45deg me-1 text-dark"></i>
-                                    (Rahym Garayev LinkedIn)</h3>
+                                <span class="text-secondary">Portfolio</span>
+                                <h3 class="h6 text-secondary fw-bold pb-2 pt-2"><i class="bi bi-linkedin text-info"></i>
+                                    <a href="https://www.linkedin.com/in/rahym-garayev-0b2b8b1a9/" target="_blank"
+                                        class="text-decoration-none text-dark">Rahym Garayev LinkedIn</a>
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -709,10 +748,9 @@
 
                 <hr>
                 <div class="d-flex flex-row justify-content-between p-2 pt-3 pb-4">
-                    <p class="text-secondary">Reference: <b class="text-dark">talap edilende berilyar.</b></p>
+                    <p class="text-secondary">Reference: <b class="text-dark">SoftwareDevTM.</b></p>
                     <button type="button" class="btn btn-primary" onclick="window.print()"><i
-                            class="bi bi-filetype-pdf"></i> PDF
-                        hokmunde chykarmak (chap)</button>
+                            class="bi bi-filetype-pdf"></i> Print as PDF </button>
                 </div>
             </div>
         </div>
@@ -721,11 +759,11 @@
         <a href="./indexold.html" target="_blank">old cv version</a>
     </footer>
 
-    <script>
+    <!-- <script>
         window.onload = function () {
             alert("Web Site still under editing. All informations are might me incorrect.");
         };
-    </script>
+    </script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
