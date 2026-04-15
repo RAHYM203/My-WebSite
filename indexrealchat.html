@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive RealChat Simulator</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --panel-2: #1f2937;
+            --border: #334155;
+            --text: #e5e7eb;
+            --soft: #94a3b8;
+            --accent: #22c55e;
+            --mine: #1d4ed8;
+            --other: #374151;
+            --reply: #0b3a2d;
+            --danger: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top, #172554, var(--bg));
+            color: var(--text);
+        }
+
+        .app {
+            width: min(980px, 96vw);
+            margin: 18px auto;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: color-mix(in srgb, var(--panel) 92%, black);
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgb(0 0 0 / 45%);
+        }
+
+        .top {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            background: var(--panel-2);
+        }
+
+        .title {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .status {
+            font-size: 13px;
+            color: var(--soft);
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto auto;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .users-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .user-pill {
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: #0b1220;
+            color: var(--text);
+            font-size: 13px;
+        }
+
+        .user-pill.active {
+            border-color: #4ade80;
+            background: #0f2c22;
+            color: #bbf7d0;
+        }
+
+        input,
+        button {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #0b1220;
+            color: var(--text);
+            padding: 10px 12px;
+            font-size: 14px;
+        }
+
+        input::placeholder {
+            color: #64748b;
+        }
+
+        button {
+            cursor: pointer;
+            background: #13203b;
+        }
+
+        button:hover {
+            filter: brightness(1.1);
+        }
+
+        .danger {
+            border-color: #7f1d1d;
+            color: #fecaca;
+            background: #2b1010;
+        }
+
+        .chat-wrap {
+            height: min(64vh, 620px);
+            display: grid;
+            grid-template-rows: 1fr auto auto;
+        }
+
+        .messages {
+            overflow-y: auto;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .row.mine {
+            justify-content: flex-end;
+        }
+
+        .bubble {
+            max-width: min(76ch, 85%);
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: var(--other);
+            border: 1px solid #4b5563;
+            word-wrap: break-word;
+        }
+
+        .row.mine .bubble {
+            background: var(--mine);
+            border-color: #3b82f6;
+        }
+
+        .reply-preview {
+            margin-top: 6px;
+            padding: 6px 8px;
+            border-radius: 6px;
+            border: 1px solid #1f7a5d;
+            background: var(--reply);
+            color: #c7f9e5;
+            font-size: 12px;
+        }
+
+        .meta {
+            font-size: 12px;
+            color: #cbd5e1;
+            margin-bottom: 4px;
+        }
+
+        .actions {
+            margin-top: 6px;
+        }
+
+        .reply-btn {
+            background: #1a2a43;
+            border: 1px solid #35507b;
+            color: #c8dcff;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        .typing {
+            min-height: 28px;
+            padding: 6px 14px 10px;
+            color: var(--soft);
+            font-size: 13px;
+        }
+
+        .composer-top {
+            border-top: 1px solid var(--border);
+            padding: 8px 10px 0;
+            min-height: 30px;
+            color: #c7f9e5;
+            font-size: 12px;
+        }
+
+        .composer-top button {
+            padding: 2px 8px;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+
+        .composer {
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 8px;
+        }
+
+        .hint {
+            padding: 8px 12px 12px;
+            font-size: 12px;
+            color: var(--soft);
+        }
+
+        .dot {
+            color: var(--accent);
+        }
+
+        @media (max-width: 760px) {
+            .controls {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .chat-wrap {
+                height: 72vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="app">
+        <header class="top">
+            <div>
+                <h1 class="title">RealChat Mini <span class="dot">●</span></h1>
+                <div class="status" id="statusText">Ready</div>
+            </div>
+            <div id="usersRow" class="users-row"></div>
+            <section class="controls">
+                <input id="newUserInput" placeholder="Add user (example: user4)" maxlength="24" />
+                <input id="roomInput" placeholder="Room (example: general)" maxlength="24" />
+                <button id="addUserBtn">Add User</button>
+                <button id="clearBtn" class="danger">Clear Room</button>
+            </section>
+        </header>
+
+        <section class="chat-wrap">
+            <div id="messages" class="messages" aria-live="polite"></div>
+            <div id="typingIndicator" class="typing"></div>
+            <div id="replyInfo" class="composer-top"></div>
+            <div class="composer">
+                <input id="messageInput" placeholder="Type a message and press Enter..." maxlength="500" />
+                <button id="sendBtn">Send</button>
+                <button id="emojiBtn">Emoji</button>
+            </div>
+        </section>
+
+        <div class="hint">
+            Real-time works across tabs/windows of this browser using BroadcastChannel.
+        </div>
+    </main>
+
+    <script>
+        (() => {
+            const STORAGE_KEY = "mini-chat-simulator-v2";
+
+            const statusText = document.getElementById("statusText");
+            const usersRow = document.getElementById("usersRow");
+            const newUserInput = document.getElementById("newUserInput");
+            const roomInput = document.getElementById("roomInput");
+            const addUserBtn = document.getElementById("addUserBtn");
+            const clearBtn = document.getElementById("clearBtn");
+            const messagesEl = document.getElementById("messages");
+            const typingEl = document.getElementById("typingIndicator");
+            const replyInfo = document.getElementById("replyInfo");
+            const messageInput = document.getElementById("messageInput");
+            const sendBtn = document.getElementById("sendBtn");
+            const emojiBtn = document.getElementById("emojiBtn");
+
+            let state = loadState();
+            roomInput.value = state.room;
+            renderUserPills();
+            renderMessages();
+            updateReplyInfo();
+            updateStatus("Simulator ready");
+
+            function loadState() {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) {
+                    return {
+                        room: "general",
+                        users: ["user1", "user2"],
+                        activeUser: "user1",
+                        replyingToId: null,
+                        messagesByRoom: { general: [] },
+                    };
+                }
+                try {
+                    const parsed = JSON.parse(raw);
+                    parsed.messagesByRoom = parsed.messagesByRoom || {};
+                    parsed.room = parsed.room || "general";
+                    parsed.users = Array.isArray(parsed.users) && parsed.users.length ? parsed.users : ["user1", "user2"];
+                    parsed.activeUser = parsed.activeUser || parsed.users[0];
+                    parsed.replyingToId = parsed.replyingToId || null;
+                    if (!parsed.messagesByRoom[parsed.room]) parsed.messagesByRoom[parsed.room] = [];
+                    return parsed;
+                } catch {
+                    return {
+                        room: "general",
+                        users: ["user1", "user2"],
+                        activeUser: "user1",
+                        replyingToId: null,
+                        messagesByRoom: { general: [] },
+                    };
+                }
+            }
+
+            function saveState() {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            }
+
+            function roomMessages(room) {
+                if (!state.messagesByRoom[room]) state.messagesByRoom[room] = [];
+                return state.messagesByRoom[room];
+            }
+
+            function nowTime(ts) {
+                return new Date(ts).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+            }
+
+            function updateStatus(text) {
+                statusText.textContent = `${text} | room: ${state.room} | active user: ${state.activeUser}`;
+            }
+
+            function updateReplyInfo() {
+                if (!state.replyingToId) {
+                    replyInfo.textContent = "";
+                    return;
+                }
+                const msg = roomMessages(state.room).find((m) => m.id === state.replyingToId);
+                if (!msg) {
+                    state.replyingToId = null;
+                    saveState();
+                    replyInfo.textContent = "";
+                    return;
+                }
+                replyInfo.innerHTML = `Replying to <b>${msg.sender}</b>: "${escapeHtml(msg.text.slice(0, 90))}" <button id="cancelReplyBtn" type="button">Cancel</button>`;
+                const cancelBtn = document.getElementById("cancelReplyBtn");
+                if (cancelBtn) {
+                    cancelBtn.addEventListener("click", () => {
+                        state.replyingToId = null;
+                        saveState();
+                        updateReplyInfo();
+                    });
+                }
+            }
+
+            function renderUserPills() {
+                usersRow.innerHTML = "";
+                for (const user of state.users) {
+                    const btn = document.createElement("button");
+                    btn.type = "button";
+                    btn.className = `user-pill ${user === state.activeUser ? "active" : ""}`;
+                    btn.textContent = user;
+                    btn.addEventListener("click", () => {
+                        state.activeUser = user;
+                        saveState();
+                        renderUserPills();
+                        renderMessages();
+                        updateStatus("Switched user");
+                        messageInput.focus();
+                    });
+                    usersRow.appendChild(btn);
+                }
+            }
+
+            function renderMessages() {
+                const list = roomMessages(state.room);
+                messagesEl.innerHTML = "";
+
+                if (!list.length) {
+                    const empty = document.createElement("div");
+                    empty.className = "status";
+                    empty.textContent = "No messages yet. Say hello.";
+                    messagesEl.appendChild(empty);
+                    return;
+                }
+
+                for (const msg of list) {
+                    const row = document.createElement("div");
+                    row.className = `row ${msg.sender === state.activeUser ? "mine" : ""}`;
+
+                    const bubble = document.createElement("div");
+                    bubble.className = "bubble";
+
+                    const meta = document.createElement("div");
+                    meta.className = "meta";
+                    meta.textContent = `${msg.sender} • ${nowTime(msg.createdAt)}`;
+
+                    const body = document.createElement("div");
+                    body.textContent = msg.text;
+
+                    if (msg.replyTo) {
+                        const replied = roomMessages(state.room).find((m) => m.id === msg.replyTo);
+                        if (replied) {
+                            const preview = document.createElement("div");
+                            preview.className = "reply-preview";
+                            preview.textContent = `↳ ${replied.sender}: ${replied.text.slice(0, 80)}`;
+                            bubble.appendChild(preview);
+                        }
+                    }
+
+                    const actions = document.createElement("div");
+                    actions.className = "actions";
+                    const replyBtn = document.createElement("button");
+                    replyBtn.type = "button";
+                    replyBtn.className = "reply-btn";
+                    replyBtn.textContent = "Reply";
+                    replyBtn.addEventListener("click", () => {
+                        state.replyingToId = msg.id;
+                        saveState();
+                        updateReplyInfo();
+                        messageInput.focus();
+                    });
+                    actions.appendChild(replyBtn);
+
+                    bubble.appendChild(meta);
+                    bubble.appendChild(body);
+                    bubble.appendChild(actions);
+                    row.appendChild(bubble);
+                    messagesEl.appendChild(row);
+                }
+
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+            }
+
+            function sendMessage() {
+                const text = messageInput.value.trim();
+                if (!text) return;
+
+                const msg = {
+                    id: crypto.randomUUID(),
+                    room: state.room,
+                    sender: state.activeUser,
+                    text,
+                    createdAt: Date.now(),
+                    replyTo: state.replyingToId,
+                };
+
+                roomMessages(state.room).push(msg);
+                saveState();
+                renderMessages();
+                messageInput.value = "";
+                state.replyingToId = null;
+                saveState();
+                updateReplyInfo();
+                setTyping("");
+            }
+
+            function clearRoom() {
+                if (!confirm(`Clear all messages in room "${state.room}"?`)) return;
+                state.messagesByRoom[state.room] = [];
+                state.replyingToId = null;
+                saveState();
+                renderMessages();
+                updateReplyInfo();
+                updateStatus("Room cleared");
+            }
+
+            function setTyping(text) {
+                typingEl.textContent = text;
+            }
+
+            function addUser() {
+                const name = (newUserInput.value || "").trim().toLowerCase().slice(0, 24);
+                if (!name) return;
+                if (state.users.includes(name)) {
+                    updateStatus(`User "${name}" already exists`);
+                    return;
+                }
+                state.users.push(name);
+                state.activeUser = name;
+                newUserInput.value = "";
+                saveState();
+                renderUserPills();
+                renderMessages();
+                updateStatus("User added and switched");
+            }
+
+            function switchRoom() {
+                const nextRoom = (roomInput.value || "general").trim().toLowerCase().slice(0, 24) || "general";
+                state.room = nextRoom;
+                roomMessages(nextRoom);
+                state.replyingToId = null;
+                saveState();
+                renderMessages();
+                updateReplyInfo();
+                updateStatus("Room switched");
+            }
+
+            function escapeHtml(text) {
+                const map = {
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    '"': "&quot;",
+                    "'": "&#039;",
+                };
+                return text.replace(/[&<>"']/g, (m) => map[m]);
+            }
+
+            function handleTyping() {
+                if (messageInput.value.trim().length) {
+                    setTyping(`${state.activeUser} is typing...`);
+                } else {
+                    setTyping("");
+                }
+            }
+
+            messageInput.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+            messageInput.addEventListener("input", handleTyping);
+
+            addUserBtn.addEventListener("click", addUser);
+            roomInput.addEventListener("change", switchRoom);
+            clearBtn.addEventListener("click", clearRoom);
+            sendBtn.addEventListener("click", sendMessage);
+            emojiBtn.addEventListener("click", () => {
+                messageInput.value += " 😀";
+                messageInput.focus();
+                handleTyping();
+            });
+        })();
+    </script>
+</body>
+
+</html>
